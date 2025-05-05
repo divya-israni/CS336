@@ -1,8 +1,8 @@
 # Prin_Of_Info_Data_Mgmt
 CS 336 At Rutgers University, New Brunswick
-### Mortgage Database Project
+## Mortgage Database Project
 
-## Overview
+### Overview
 
 This repository contains the work for the mortgage database project, completed in 3 parts. The project involves building a database and performing normalization on mortgage data for the state of New Jersey.
 

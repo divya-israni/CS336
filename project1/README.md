@@ -9,18 +9,18 @@ only affects a small portion of the loan applications.
 
 ## Resources:
 Official PostgreSQL documentation https://www.postgresql.org/docs/17/index.html used for:
-    - importing csv into database
-    - exporting table to csv
-    - explicit type casting to turn preliminary table into typed_preliminary table
-    - serial data type
-    - numeric data type
-    - view to table
-    - cascade drop for easier debugging
+ - importing csv into database
+ - exporting table to csv
+ - explicit type casting to turn preliminary table into typed_preliminary table
+ - serial data type
+ - numeric data type
+ - view to table
+ - cascade drop for easier debugging
 ## Other sources:
-    - https://files.consumerfinance.gov/hmda-historic-data-dictionaries/lar_record_codes.pdf
-        - inserting values into reference relations
-    - https://wiki.postgresql.org/wiki/Is_distinct_from
-        - comparing nullable columns
+ - https://files.consumerfinance.gov/hmda-historic-data-dictionaries/lar_record_codes.pdf
+ - inserting values into reference relations
+ - https://wiki.postgresql.org/wiki/Is_distinct_from
+ - comparing nullable columns
 
 ## Interesting questions:
 Some interesting questions about mortgages in NJ our database can answer is which counties
@@ -34,21 +34,15 @@ a certain race, sex, or ethnicity are usually granted smaller loan amounts. It c
 about trends and many more things. 
 
 ## Challenges:
-    - having to first create preliminary table with all TEXT type then converting to correct types
-      with a separate table
-    - when creating tables with foreign keys, the order in which they are created may result in certain
-      tables not being created
-    - deciding if we wanted to create all tables without foreign keys first then use ALTER TABLE later
-      to avoid the previous problem, or to just change the order in which we created the tables
-    - assigning a location to a property
-    - assigning a property to a loan
-    - applicant_income_000s apparently can be null
-    - due to the large number of attributes, it was easy to lose track of what certain relations looked
-      like and joining tables improperly as a result, which created even more problems
-    - halfway though we decided to change application_id to loan_id because they have the same functionality,
-      and it made things a bit confusing
-    - when joining everything back together, left joins were needed for nullable columns
+ - having to first create preliminary table with all TEXT type then converting to correct types with a separate table
+ - when creating tables with foreign keys, the order in which they are created may result in certain tables not being created
+ - deciding if we wanted to create all tables without foreign keys first then use ALTER TABLE later to avoid the previous problem, or to just change the order in which we created the tables
+ - assigning a location to a property
+ - assigning a property to a loan
+ - applicant_income_000s apparently can be null
+ - due to the large number of attributes, it was easy to lose track of what certain relations looked like and joining tables improperly as a result, which created even more problems
+ - halfway though we decided to change application_id to loan_id because they have the same functionality, and it made things a bit confusing
+ - when joining everything back together, left joins were needed for nullable columns
     
   ## Time:
-	This project took us at most 12 hours cumulatively between all members to complete, but we had our work cut
-    out for us because we had already normalized the data in project 0.
+  This project took us at most 12 hours cumulatively between all members to complete, but we had our work cut out for us because we had already normalized the data in project 0.

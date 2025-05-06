@@ -1,4 +1,4 @@
-# Issues?
+## Issues?
 No.
 
 ## Resources
@@ -6,7 +6,7 @@ https://www.bytebase.com/blog/postgres-timeout/ -- Setting statement timeout in 
 https://neon.tech/postgresql/postgresql-tutorial/import-csv-file-into-posgresql-table -- How to upload a CSV to a postgres table
 https://www.geeksforgeeks.org/postgresql-serial/ -- Understanding SERIAL datatype in Postgres
 
-# Insights + Rules
+## Insights + Rules
 
 Based off the attributes, we could gather the following insights about mortgage loans in NJ in 2017:
 1. Loan approval and denial rate differences between different demographics (ethnicity, race, sex).
@@ -20,7 +20,7 @@ The rules we used to construct the entities were the following:
     1. These types of columns were very common in the original denormalized data (denial type, loan purpose, loan type, msamd type, etc.). By creating these enums as tables, we can define the known keys and values in one place and can reference them without duplicating that data for each loan. All we'd need to do is join on the id of that enum.
 
 
-# Problems/Challenges We Faced
+## Problems/Challenges We Faced
 1. Without domain knowledge, constructing some of the entities were a bit challenging.
 2. Some group members did not have access to the table, even after creating it under the shared group database. We had to manually grant all privileges to those user ids.
 3. We could not add an empty ID column to represent the primary key in our table as it will contain NULL values. Instead, we changed it to be a serial type to hold an auto-incrementing id.

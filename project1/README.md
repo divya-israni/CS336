@@ -1,4 +1,4 @@
-Known Issues:
+#Known Issues:
 PSQL implicitly casts ‘1’ into int 1 when inserting into a table with an int attribute,
 which doesn’t cause that many issues but it’s still a minor bug. When PSQL tries to cast
 ‘a’ into an int, it will throw an error.
@@ -7,7 +7,7 @@ Applications with messed up locations (missing msamd, county, etc.) aren’t in 
 rejoined table because of the way we constructed our location primary key. But this issue
 only affects a small portion of the loan applications.
 
-Resources:
+#Resources:
 Official PostgreSQL documentation https://www.postgresql.org/docs/17/index.html used for:
     - importing csv into database
     - exporting table to csv
@@ -16,13 +16,13 @@ Official PostgreSQL documentation https://www.postgresql.org/docs/17/index.html 
     - numeric data type
     - view to table
     - cascade drop for easier debugging
-Other sources:
+#Other sources:
     - https://files.consumerfinance.gov/hmda-historic-data-dictionaries/lar_record_codes.pdf
         - inserting values into reference relations
     - https://wiki.postgresql.org/wiki/Is_distinct_from
         - comparing nullable columns
 
-Interesting questions:
+#Interesting questions:
 Some interesting questions about mortgages in NJ our database can answer is which counties
 have the highest denial rates, how approval rates differ by race, sex, or ethnicity, and the most
 common denial reasons. The database can answer a variety of questions relating to mortgages
@@ -33,7 +33,7 @@ as the distribution of income between different demographics. It can also answer
 a certain race, sex, or ethnicity are usually granted smaller loan amounts. It can also answer questions
 about trends and many more things. 
 
-Challenges:
+#Challenges:
     - having to first create preliminary table with all TEXT type then converting to correct types
       with a separate table
     - when creating tables with foreign keys, the order in which they are created may result in certain
@@ -49,6 +49,6 @@ Challenges:
       and it made things a bit confusing
     - when joining everything back together, left joins were needed for nullable columns
     
-  Time:
+  #Time:
 	This project took us at most 12 hours cumulatively between all members to complete, but we had our work cut
     out for us because we had already normalized the data in project 0.

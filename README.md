@@ -1,15 +1,51 @@
-# Prin_Info_Data_Mgmt
-CS 336 At Rutgers University, New Brunswick
-## Mortgage Database Project
+# Names:
+Siddarth Narayanan srn79
+Yat Wang ycw7
+Divya Israni dri12
+Faruk Arasan
 
-### Overview
 
-This repository contains the work for the mortgage database project, completed in 3 parts. The project involves building a database and performing normalization on mortgage data for the state of New Jersey.
+# Issues?
+No.
 
-### Project Breakdown:
+# Collaboration
+- Siddarth Narayanan srn79
+  - SQL Script
+  - ER Diagram
 
-- **Project 0**: Creation of an Entity-Relationship (ER) diagram based on the mortgage data and uploading the data to PostgreSQL.
-- **Project 1**: Normalization of the database to 3rd Normal Form (3NF), ensuring that all tables adhere to functional dependencies and eliminate redundancies.
-- **Project 2**: Development of a program that uses a local LLM to interact with the database via natural language and SQL queries.
+- Yat Wang ycw7
+  - SQL Script
+  - ER Diagram
 
-Worked on by other individuals, who are listed in specific README files. 
+- Divya Israni dri12
+  - SQL Script
+  - ER Diagram
+
+## Resources
+https://www.bytebase.com/blog/postgres-timeout/ -- Setting statement timeout in postgres to allow full database to be loaded
+https://neon.tech/postgresql/postgresql-tutorial/import-csv-file-into-posgresql-table -- How to upload a CSV to a postgres table
+https://www.geeksforgeeks.org/postgresql-serial/ -- Understanding SERIAL datatype in Postgres
+
+# Insights + Rules
+
+Based off the attributes, we could gather the following insights about mortgage loans in NJ in 2017:
+1. Loan approval and denial rate differences between different demographics (ethnicity, race, sex).
+2. Which lenders/agencies are most likely to give out loans to what demographics and/or regions.
+3. Correlation between applicant income and loan type and amount. i.e. What types of loans are wealthier people getting and what types of loans are poorer people getting?
+4. Which regions receive more mortgage loans, and the approval/denial rates in those regions.
+
+The rules we used to construct the entities were the following:
+1. Minimize empty, superfluous columns (e.g., race2, race3) and instead create a join table to model the many to many relationship, ensuring we only store the data that we need without a ton of null values.
+2. Prevent repetitive/duplicated data by creating "enum" entities which act as simple key-value pairs that store an id and a description/name of that id.
+    1. These types of columns were very common in the original denormalized data (denial type, loan purpose, loan type, msamd type, etc.). By creating these enums as tables, we can define the known keys and values in one place and can reference them without duplicating that data for each loan. All we'd need to do is join on the id of that enum.
+
+
+# Problems/Challenges We Faced
+1. Without domain knowledge, constructing some of the entities were a bit challenging.
+2. Some group members did not have access to the table, even after creating it under the shared group database. We had to manually grant all privileges to those user ids.
+3. We could not add an empty ID column to represent the primary key in our table as it will contain NULL values. Instead, we changed it to be a serial type to hold an auto-incrementing id.
+    1. `sequence_number` was empty in our dataset which meant we needed to create a new id column for a loan.
+4. There are a lot of columns that are missing most if not all of their values.
+5. For respondent information, we did not know if an `edit_status` was for a specific loan or a specific agency. We assumed it was for a specific loan, which meant each respondent is for a specific loan and each respondent can be 1 of a set of agencies.
+
+We took about 3-4 hours in total to complete the project.

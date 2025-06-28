@@ -15,7 +15,8 @@
     - psycopg2
     - llama_cpp_python
 
-## LLM Model: mistral-7b-instruct-v0.1.Q4_K_M.gguf
+## LLM Model: 
+mistral-7b-instruct-v0.1.Q4_K_M.gguf
 
 ## Main chat transcript:
     https://chatgpt.com/share/68183621-fdac-8013-ab7d-792cdb2b70e9

@@ -1,4 +1,4 @@
-# Prin_Info_Data_Mgmt
+# Principles of Information and Data Management 
 CS 336 At Rutgers University, New Brunswick
 ## Mortgage Database Project
  
